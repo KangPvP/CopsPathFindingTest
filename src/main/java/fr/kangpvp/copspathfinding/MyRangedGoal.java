@@ -1,12 +1,8 @@
 package fr.kangpvp.copspathfinding;
 
-import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.util.RandomPos;
-import net.minecraft.world.level.PathNavigationRegion;
 
 import java.util.EnumSet;
 
@@ -34,20 +30,26 @@ public class MyRangedGoal extends Goal {
 
     @Override
     public boolean canUse() {
+        System.out.println("OK");
         this.b = this.a.getTarget();
         if(this.b == null){
+            System.out.println("OK 1" );
+
             return false;
         } else if(this.a.getDisplayName() == null){
+            System.out.println("OK 2" );
+
             return false;
-        } else if (!(this.a.getDisplayName().contains(this.b.getName()))){
-            return false;
-        } else if(!(this.b.distanceToSqr(this.a) > (double) (this.g * this.g))){
+        } else if(this.b.distanceToSqr(this.a) > (double) (this.g * this.g)){
             a.setPos(this.b.getX(), this.b.getY(), this.b.getZ());
+            System.out.println("Tp");
             return false;
         } else {
+            System.out.println("Move");
+
             // follow the owner
             //RandomPos.
-
+            //RandomPos.generateRandomPos((PathfinderMob) this.a, (Supplier<BlockPos>) this.b.getViewVector(16F));
             this.c = this.b.getX();
             this.d = this.b.getY();
             this.e = this.b.getZ();

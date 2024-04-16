@@ -3,5 +3,5 @@ version: '${project.version}'
 main: fr.kangpvp.copspathfinding.CopsPathFinding
 api-version: '1.20'
 commands:
-  spawncop:
+  spawncopcustom:
 

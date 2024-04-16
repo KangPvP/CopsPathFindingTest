@@ -9,7 +9,7 @@ public final class CopsPathFinding extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        Bukkit.getPluginCommand("spawncop").setExecutor(new SpawnCopCmd());
+        Bukkit.getPluginCommand("spawncopcustom").setExecutor(new SpawnCopCmd());
     }
 
     @Override
